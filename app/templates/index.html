@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ title }}</h1>
+    
+    
+    <form action="/uploaded" method="POST" enctype="multipart/form-data">
+    Select Image:
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload Image" name="submit">
+        
+    </form>
+    <form action="/download" method="GET" enctype="multipart/form-data">
+    Give Url of Image:
+        <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="80">
+        <input type="submit" value="Download Image" name="submit">
+        
+    </form>
+    
+	{% if current_user.is_authenticated %}
+	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
+	{% endif %}
+
+{% endblock %}

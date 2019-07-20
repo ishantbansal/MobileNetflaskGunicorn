@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<div id="img">
+    <img src="../static/{{user_image}}" height="200px" id="image">
+    </div>
+    <div id="output">
+    
+    </div>
+    <div id="sample">
+    
+    </div>
+    
+
+ {{ predictions }}
+<script>
+    console.log(predictions)
+    
+    /*
+    //console.log(predictions)
+    callStackML();
+
+    async function callStackML() {
+    await stackml.init({'accessKeyId': 'ee8a4e5f3e3f6f1747c3bed165454f21'});
+        const classifier = await stackml.imageClassifier('MobileNet', callbackLoad);
+        classifier.predict(document.getElementById('image'), callbackPredict);
+        //load YOLO model
+        //const yolo = await stackml.YOLO(callbackLoad);
+        
+        //make prediction with the image
+        //yolo.detect(document.getElementById('image'), callbackPredict);
+        
+        function callbackLoad() {
+            console.log('callback after YOLO model is loaded!');
+            }
+        //callback after prediction
+        function callbackPredict(err, results) {
+            
+            console.log(results);
+            const dobj = Object.keys(results['outputs']).length
+            var oclass = []
+            var prob = []
+            for (var i = 0;i<dobj;i++){
+                oclass[i] = results['outputs'][i]['className']
+                prob[i] = results['outputs'][i]['probability']
+                
+            }
+            const indexOfMaxValue = prob.indexOf(Math.max(...prob))
+            document.getElementById('output').innerHTML = "Detected Object With highest Probablity - " + oclass[indexOfMaxValue]
+            //draw output box in the image
+            yolo.draw(document.getElementById('myCanvas'), document.getElementById('image'), results);
+        }
+    }
+    */
+</script>
+    
+
+{% endblock %}
+        
